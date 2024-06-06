@@ -1,20 +1,11 @@
 import './App.css';
 // import Logo from "./images/icons_assets/Logo.svg"
-import Header from "./components/Header"
-import Nav from "./components/Nav"
-import { BrowserRouter as Router, Route, Routes, RouterLink} from "react-router-dom";
+import Nav from "./components/Nav";
+import HomePage from "./components/HomePage";
+import Main from "./components/Main";
 
-function AppContent() {
-  return (
-    <>
-      <Routes>
-        <Route path="/menu" element={<Header />} />
-      </Routes>
-      <Header />
-      
-    </>
-  )
-}
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+
 
 function App() {
   return (
@@ -25,15 +16,20 @@ function App() {
     <meta name="og:image" content=""/>
     
     <Router>
-      <AppContent/>
-    </Router>
+            <Nav />
+            
+            <Routes>
+              
+                <Route path="/" element={<HomePage />} />
+                <Route path="/booking" element={<Main />} />
+                {/* Add other routes as needed */}
+            </Routes>
+      </Router>
     
-
-        <h1> HomePage</h1>
     
-    <nav></nav>
-    <main></main>
-    <footer></footer>
+        
+    
+    
     </>
 
   );

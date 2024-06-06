@@ -36,3 +36,130 @@
     transform: rotate(360deg);
   }
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background-color: #f8f8f8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+}
+
+.call-to-action {
+  text-align: center;
+  padding: 50px;
+  background-color: #fffacd;
+}
+
+.call-to-action h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.call-to-action p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.call-to-action button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #ffa500;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.specials, .customers-say, .chicago, .booking-page {
+  padding: 50px;
+  text-align: center;
+}
+
+.specials h2, .customers-say h2, .chicago h2, .booking-page h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.specials ul, .customers-say ul {
+  list-style: none;
+  padding: 0;
+}
+
+.specials li, .customers-say li {
+  margin-bottom: 20px;
+}
+
+.booking-page form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.booking-page label {
+  margin-bottom: 10px;
+}
+
+.booking-page input {
+  margin-bottom: 10px;
+  padding: 5px;
+  font-size: 1em;
+}
+
+.booking-page button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #ffa500;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .header {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .nav-links {
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+      width: 100%;
+  }
+
+  .nav-links a {
+      width: 100%;
+      text-align: left;
+  }
+
+  .call-to-action {
+      padding: 30px;
+  }
+}
