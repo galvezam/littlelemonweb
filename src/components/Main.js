@@ -1,11 +1,11 @@
 import React, { useReducer } from 'react';
 import BookingPage from './BookingPage';
 
-const initializeTimes = () => {
+export const initializeTimes = () => {
     return ['17:00', '18:00', '19:00', '20:00', '21:00'];
 };
 
-const updateTimes = (state, action) => {
+export const updateTimes = (state, action) => {
     // For now, return the same available times regardless of the date
     switch (action.type) {
         case 'UPDATE_TIMES':
@@ -16,7 +16,7 @@ const updateTimes = (state, action) => {
 };
 
 const Main = () => {
-    const [availableTimes, dispatch] = useReducer(updateTimes, [], initializeTimes);
+    const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
 
     return (
         <BookingPage availableTimes={availableTimes} dispatch={dispatch} />

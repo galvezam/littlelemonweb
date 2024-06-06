@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+import { FormControl, FormLabel, Input, Select, Box, Heading, VStack, Text } from '@chakra-ui/react';
 
-const BookingForm = () => {
+const BookingForm = ({ availableTimes, dispatch }) => {
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
-    const [availableTimes, setAvailableTimes] = useState(['17:00', '18:00', '19:00', '20:00', '21:00']);
 
     const handleDateChange = (e) => {
         setDate(e.target.value);
+        dispatch({ type: 'UPDATE_TIMES', date: e.target.value });
     };
 
     const handleTimeChange = (e) => {
@@ -14,27 +15,44 @@ const BookingForm = () => {
     };
 
     return (
-        <form style={{ display: 'grid', maxWidth: '200px', gap: '20px' }}>
-            <label htmlFor="res-date">Choose date</label>
-            <input
-                type="date"
-                id="res-date"
-                value={date}
-                onChange={handleDateChange}
-            />
-            <label htmlFor="res-time">Choose time</label>
-            <select
-                id="res-time"
-                value={time}
-                onChange={handleTimeChange}
-            >
-                {availableTimes.map((time, index) => (
-                    <option key={index} value={time}>
-                        {time}
-                    </option>
-                ))}
-            </select>
-        </form>
+        <Box bg="gray.50" p={4} minH="100vh">
+            <Box bg="white" maxW="lg" mx="auto" p={8} boxShadow="lg" rounded="lg">
+                <VStack spacing={4}>
+                    
+                    <form style={{ display: 'grid', gap: '20px', width: '100%' }}>
+                        <FormControl id="res-date">
+                            <FormLabel>Choose date</FormLabel>
+                            <Input
+                                type="date"
+                                value={date}
+                                onChange={handleDateChange}
+                                focusBorderColor="teal.400"
+                                size="lg"
+                            />
+                        </FormControl>
+                        <FormControl id="res-time">
+                            <FormLabel>Choose time</FormLabel>
+                            <Select
+                                value={time}
+                                onChange={handleTimeChange}
+                                focusBorderColor="teal.400"
+                                size="lg"
+                            >
+                                {Array.isArray(availableTimes) && availableTimes.length > 0 ? (
+                                    availableTimes.map((time, index) => (
+                                        <option key={index} value={time}>
+                                            {time}
+                                        </option>
+                                    ))
+                                ) : (
+                                    <option value="">No available times</option>
+                                )}
+                            </Select>
+                        </FormControl>
+                    </form>
+                </VStack>
+            </Box>
+        </Box>
     );
 };
 
