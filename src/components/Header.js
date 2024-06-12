@@ -1,25 +1,7 @@
-import React, { useEffect, useState, useRef } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import {
-    faOpencart
-} from "@fortawesome/free-brands-svg-icons";
-import Logo from "../images/icons_assets/littlelemonlogo.png"
-import { Box, HStack, Link, Icon, Image } from "@chakra-ui/react";
+import React, {useState, useEffect} from "react";
 import Nav from "./Nav";
-
-
-const socials = [
-  {
-    icon: faEnvelope,
-    url: "https://mail.google.com/mail/u/0/#inbox?compose=CllgCJlKpGkRRGwgJCPjdsCTGWbjchXSvPPlTskhSCTftKcTZGZjnqKCJzZSmJsWbqcPLjFmxdq",
-  },
-  {
-    icon: faOpencart,
-    url: "https://mail.google.com/mail/u/0/#inbox?compose=CllgCJlKpGkRRGwgJCPjdsCTGWbjchXSvPPlTskhSCTftKcTZGZjnqKCJzZSmJsWbqcPLjFmxdq",  
-  }
- 
-];
+import { Box, HStack } from "@chakra-ui/react"
+// import scrollDirection from "./useScrollDirection";
 
 
 const Header = () => {
@@ -39,7 +21,7 @@ const Header = () => {
     };
   }, [prevScrollPos]);
 
-/*
+
   const handleClick = (anchor) => () => {
     const id = `${anchor}-section`;
     const element = document.getElementById(id);
@@ -57,28 +39,28 @@ const Header = () => {
 
     }
   };
-  */
+
 
   return (
-    <Box color="white" backgroundColor={"white"} maxWidth="1280px" margin="0 auto">
-        <HStack
-          px={16}
-          py={4}
-          justifyContent="space-between"
-          alignItems="center"
-        >
-          
-        <nav>
-            <HStack spacing={100}>
-                
-                <Nav color="black"/>
-            </HStack>
-            
-        </nav>
-          
-        </HStack>
-      </Box>
     
+    <Box
+      position="fixed"
+
+      top={isVisible ? 0 : -150}
+      left={0}
+      right={0}
+      translateY={0}
+      transitionProperty="top"
+      transitionDuration=".3s"
+      transitionTimingFunction="ease-in-out"
+      backgroundColor="#FFFFFF"
+      zIndex={1000} 
+    >
+     
+        <Nav />
+      
+    </Box>
+                  
   );
 };
 export default Header;

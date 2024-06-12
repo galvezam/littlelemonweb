@@ -1,52 +1,49 @@
 import React from 'react';
+import { Box, HStack, Text, VStack, Heading, Avatar } from "@chakra-ui/react";
+import { StarIcon } from "@chakra-ui/icons";
 
 const CustomersSay = () => {
     const testimonials = [
-        { id: 1, name: "Customer 1", rating: 5, review: "Excellent!" },
-        { id: 2, name: "Customer 2", rating: 4, review: "Very good!" },
-        { id: 3, name: "Customer 3", rating: 5, review: "Loved it!" },
+        { id: 1, name: "Bob Jones", rating: 5, review: "Excellent!", avatarSrc: "https://i.pravatar.cc/150?img=11" },
+        { id: 2, name: "Miller Grove", rating: 4, review: "Very good!", avatarSrc: "https://i.pravatar.cc/150?img=12" },
+        { id: 3, name: "Richard Holmes", rating: 5, review: "Loved it!", avatarSrc: "https://i.pravatar.cc/150?img=13" },
     ];
 
-    const styles = {
-        section: {
-            padding: '50px',
-            textAlign: 'center'
-        },
-        h2: {
-            fontSize: '2em',
-            marginBottom: '20px'
-        },
-        ul: {
-            listStyle: 'none',
-            padding: '0'
-        },
-        li: {
-            marginBottom: '40px'
-        },
-        h3: {
-            fontSize: '1.5em',
-            marginBottom: '10px'
-        },
-        p: {
-            marginBottom: '10px',
-            fontSize: '1.1em',
-            lineHeight: '1.5'
-        }
-    };
-
     return (
-        <section style={styles.section}>
-            <h2 style={styles.h2}>What our customers say</h2>
-            <ul style={styles.ul}>
+        <Box bg="#495E57" p={60} textAlign="center">
+            <Heading as="h1" size="xl" mb={60} color="#F4CE14">Customer Ratings</Heading>
+            <HStack spacing={60} wrap="wrap" justify="center" >
                 {testimonials.map((testimonial) => (
-                    <li key={testimonial.id} style={styles.li}>
-                        <h3 style={styles.h3}>{testimonial.name}</h3>
-                        <p style={styles.p}>Rating: {testimonial.rating}</p>
-                        <p style={styles.p}>{testimonial.review}</p>
-                    </li>
+                    <Box
+                        key={testimonial.id}
+                        borderWidth="1px"
+                        borderRadius="10px"
+                        overflow="hidden"
+                        boxShadow="md"
+                        p={10}
+                        backgroundColor="white"
+                        width="240px"
+                        textAlign="left"
+                    >
+                        <VStack spacing={4}>
+                            <Avatar name={testimonial.name} src={testimonial.avatarSrc} borderRadius="10px"size="xl" />
+                            <Heading size="md">{testimonial.name}</Heading>
+                            <HStack spacing={1}>
+                                {Array(5)
+                                    .fill("")
+                                    .map((_, i) => (
+                                        <StarIcon
+                                            key={i}
+                                            color={i < testimonial.rating ? "yellow" : "grey"}
+                                        />
+                                    ))}
+                            </HStack>
+                            <Text>{testimonial.review}</Text>
+                        </VStack>
+                    </Box>
                 ))}
-            </ul>
-        </section>
+            </HStack>
+        </Box>
     );
 };
 

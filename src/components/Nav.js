@@ -1,4 +1,4 @@
-import { Box, HStack, Link, Icon, Image, Spacer } from "@chakra-ui/react";
+import { Box, HStack, Image, Spacer } from "@chakra-ui/react";
 import {Link as RouterLink} from "react-router-dom"
 import logo from "../images/icons_assets/littlelemonlogo.png"
 
@@ -7,68 +7,61 @@ const Nav = () => {
         <HStack 
             padding = {20} 
             spacing = {30}
-            fontFamily={"Markazi Text Medium"}
+            // fontFamily={"Markazi Text Medium"}
             fontWeight={"bolder"}
+            
         >
              <RouterLink to="/">
-                <Image src={logo} alt="Little Lemon Logo" width="300px" />
+                <Image src={logo} alt="Little Lemon Logo" width="300px" height="100px" />
             </RouterLink>
-            <Spacer/>
-            <RouterLink to="/" style={{ color: "black", textDecoration: "none" }}>
-                <p>Home</p>
+            <Spacer />
+            
+            <RouterLink to="/" style={{ color: "black", textDecoration: "none" }} 
+                
+            >
+                <Box 
+                    _hover={{ boxShadow: "xl", transform: "scale(1.05)", transition: "0.3s" }}
+                >
+                    <p >Home</p>
+                </Box>
+                
             </RouterLink>
             <RouterLink to="/about" style={{ color: "black", textDecoration: "none" }}>
+                <Box 
+                    _hover={{ boxShadow: "xl", transform: "scale(1.05)", transition: "0.3s" }}
+                >
                 <p>About</p>
+                </Box>
             </RouterLink>
             <RouterLink to="/menu" style={{ color: "black", textDecoration: "none" }}>
+                <Box 
+                    _hover={{ boxShadow: "xl", transform: "scale(1.05)", transition: "0.3s" }}
+                >
                 <p>Menu</p>
+                </Box>
             </RouterLink>
             <RouterLink to="/booking" style={{ color: "black", textDecoration: "none" }}>
+                <Box 
+                    _hover={{ boxShadow: "xl", transform: "scale(1.05)", transition: "0.3s" }}
+                >
                 <p>Reservations</p>
+                </Box>
             </RouterLink>
             <RouterLink to="/order-online" style={{ color: "black", textDecoration: "none" }}>
+                <Box 
+                    _hover={{ boxShadow: "xl", transform: "scale(1.05)", transition: "0.3s" }}
+                >
                 <p>Order Online</p>
+                </Box>
             </RouterLink>
             <RouterLink to="/login" style={{ color: "black", textDecoration: "none" }}>
+                <Box 
+                    _hover={{ boxShadow: "xl", transform: "scale(1.05)", transition: "0.3s" }}
+                >
                 <p>Login</p>
+                </Box>
             </RouterLink>  
         </HStack> 
-        /* 
-        <Box as="nav" padding="20px 22px" boxShadow="md">
-        <HStack spacing={120}>
-            <Image src={logo} alt="Little Lemon Logo" boxSize={80} width={300} height={120}/>
-            <Spacer />
-            <HStack 
-                as="ul" 
-                spacing={30} 
-                justifyContent="space-evenly" 
-                listStyleType="none" 
-                margin = "64px"
-                fontFamily={"Markazi Text Medium"}
-                fontWeight={"bolder"}
-                >
-                <RouterLink to="/" style={{ color: "black", textDecoration: "none" }}>
-                    <li>Home</li>
-                </RouterLink>
-                <RouterLink to="/" style={{ color: "black", textDecoration: "none" }}>
-                    <li>About</li>
-                </RouterLink>
-                <RouterLink to="/" style={{ color: "black", textDecoration: "none" }}>
-                    <li>Menu</li>
-                </RouterLink>
-                <RouterLink to="/" style={{ color: "black", textDecoration: "none" }}>
-                    <li>Reservations</li>
-                </RouterLink>
-                <RouterLink to="/" style={{ color: "black", textDecoration: "none" }}>
-                    <li>Order Online</li>
-                </RouterLink>
-                <RouterLink to="/" style={{ color: "black", textDecoration: "none" }}>
-                    <li>Login</li>
-                </RouterLink>
-            </HStack>
-        </HStack>
-    </Box>
-    */
     )
 }
 export default Nav;

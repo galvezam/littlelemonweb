@@ -1,8 +1,10 @@
 import React from 'react';
 import CallToAction from './CallToAction';
 import Specials from './Specials';
-import CustomersSay from './CustomersSay';
+
+import CustomersSay from "./CustomersSay";
 import Chicago from './Chicago';
+import Footer from './Footer';
 
 const HomePage = () => {
   return (
@@ -10,7 +12,9 @@ const HomePage = () => {
       <CallToAction />
       <Specials />
       <CustomersSay />
+      
       <Chicago />
+      <Footer />
     </>
   );
 }
